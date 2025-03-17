@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Australian Motorcyclist | The Ultimate Motorcycle Magazine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'aussie-blue': '#00008B',
+                        'aussie-red': '#FF0000',
+                        'aussie-dark': '#1A1A2E',
+                        'aussie-light': '#F5F5F5'
+                    },
+                    fontFamily: {
+                        'racing': ['Racing Sans One', 'sans-serif'],
+                        'body': ['Barlow', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Barlow:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Barlow', sans-serif;
+        }
+
+        /* 修改轮播图样式 */
+        .hero-slide {
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-tab.active {
+            color: #FF0000;
+            border-bottom: 3px solid #FF0000;
+        }
+
+        .ad-unit {
+            background-color: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <!-- 导航栏 -->
+    <nav class="bg-aussie-dark text-white sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="text-aussie-red text-3xl font-racing">
+                    Australian Motorcyclist
+                </div>
+            </div>
+
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#" class="hover:text-aussie-red transition duration-300 uppercase tracking-wider">Home</a>
+                <a href="#" class="hover:text-aussie-red transition duration-300 uppercase tracking-wider">Reviews</a>
+                <a href="#" class="hover:text-aussie-red transition duration-300 uppercase tracking-wider">News</a>
+                <a href="#" class="hover:text-aussie-red transition duration-300 uppercase tracking-wider">Features</a>
+                <a href="#" class="hover:text-aussie-red transition duration-300 uppercase tracking-wider">Gear</a>
+                <a href="#" class="hover:text-aussie-red transition duration-300 uppercase tracking-wider">Subscribe</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" placeholder="Search..."
+                        class="bg-gray-800 text-white px-4 py-1 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-aussie-red w-32 md:w-48">
+                    <i class="fas fa-search absolute right-3 top-2 text-gray-400"></i>
+                </div>
+                <button
+                    class="bg-aussie-red hover:bg-red-700 px-4 py-1 rounded-full text-sm font-bold transition duration-300">
+                    SUBSCRIBE
+                </button>
+                <div class="md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <div class="relative h-[70vh] overflow-hidden">
+        <div class="hero-slide active absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent z-10"></div>
+            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                class="w-full h-full object-cover" alt="Motorcycle racing">
+            <div class="absolute bottom-0 left-0 z-20 p-8 md:p-16 w-full md:w-2/3">
+                <span
+                    class="bg-moto-red text-white px-3 py-1 text-sm font-bold uppercase tracking-wider">Featured</span>
+                <h1 class="text-4xl md:text-6xl font-racing text-white mt-4 leading-tight">The Art of Speed: 2023's Most
+                    Thrilling Superbikes</h1>
+                <p class="text-gray-200 mt-4 text-lg md:w-3/4">We test the latest generation of speed machines that are
+                    redefining what's possible on two wheels.</p>
+                <button
+                    class="mt-6 bg-white text-moto-dark hover:bg-moto-red hover:text-white px-6 py-3 font-bold transition duration-300 flex items-center group">
+                    EXPLORE NOW
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="hero-slide absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent z-10"></div>
+            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                class="w-full h-full object-cover" alt="Adventure motorcycle">
+            <div class="absolute bottom-0 left-0 z-20 p-8 md:p-16 w-full md:w-2/3">
+                <span
+                    class="bg-moto-red text-white px-3 py-1 text-sm font-bold uppercase tracking-wider">Adventure</span>
+                <h1 class="text-4xl md:text-6xl font-racing text-white mt-4 leading-tight">Beyond Boundaries: The
+                    Ultimate Adventure Bikes</h1>
+                <p class="text-gray-200 mt-4 text-lg md:w-3/4">Discover the machines built to take you where roads end
+                    and adventures begin.</p>
+                <button
+                    class="mt-6 bg-white text-moto-dark hover:bg-moto-red hover:text-white px-6 py-3 font-bold transition duration-300 flex items-center group">
+                    EXPLORE NOW
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="hero-slide absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent z-10"></div>
+            <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                class="w-full h-full object-cover" alt="Vintage motorcycle">
+            <div class="absolute bottom-0 left-0 z-20 p-8 md:p-16 w-full md:w-2/3">
+                <span
+                    class="bg-moto-red text-white px-3 py-1 text-sm font-bold uppercase tracking-wider">Classics</span>
+                <h1 class="text-4xl md:text-6xl font-racing text-white mt-4 leading-tight">Timeless Machines: Vintage
+                    Motorcycles Reborn</h1>
+                <p class="text-gray-200 mt-4 text-lg md:w-3/4">The revival of classic designs with modern engineering is
+                    creating a new golden age.</p>
+                <button
+                    class="mt-6 bg-white text-moto-dark hover:bg-moto-red hover:text-white px-6 py-3 font-bold transition duration-300 flex items-center group">
+                    EXPLORE NOW
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 轮播控制 -->
+        <div class="absolute bottom-4 right-4 z-30 flex space-x-2">
+            <div class="w-3 h-3 rounded-full bg-white opacity-100"></div>
+            <div class="w-3 h-3 rounded-full bg-white opacity-50"></div>
+            <div class="w-3 h-3 rounded-full bg-white opacity-50"></div>
+        </div>
+    </div>
+
+    <!-- 分类标签 -->
+    <div class="bg-white sticky top-16 z-40 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex overflow-x-auto py-4 space-x-8 no-scrollbar">
+                <button class="category-tab active whitespace-nowrap font-bold text-lg px-2 py-1">LATEST</button>
+                <button
+                    class="category-tab whitespace-nowrap font-bold text-lg px-2 py-1 text-gray-500">REVIEWS</button>
+                <button
+                    class="category-tab whitespace-nowrap font-bold text-lg px-2 py-1 text-gray-500">FEATURES</button>
+                <button
+                    class="category-tab whitespace-nowrap font-bold text-lg px-2 py-1 text-gray-500">INTERVIEWS</button>
+                <button
+                    class="category-tab whitespace-nowrap font-bold text-lg px-2 py-1 text-gray-500">ADVENTURE</button>
+                <button class="category-tab whitespace-nowrap font-bold text-lg px-2 py-1 text-gray-500">RACING</button>
+                <button class="category-tab whitespace-nowrap font-bold text-lg px-2 py-1 text-gray-500">GEAR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容区 -->
+    <div class="container mx-auto px-4 py-12">
+        <!-- 特色文章 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 文章卡片 1 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                        alt="Motorcycle review" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 left-4 bg-aussie-red text-white px-3 py-1 text-sm font-bold">REVIEW</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3">2023 Triumph Tiger 900 Rally Pro: The Ultimate All-Rounder?</h3>
+                    <p class="text-gray-600 mb-4">We put Triumph's adventure flagship through its paces on Australia's
+                        toughest terrain to see if it lives up to the hype.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">By Mark Thompson • 2 days ago</span>
+                        <button class="text-aussie-red font-bold flex items-center">
+                            READ MORE <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 文章卡片 2 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                        alt="Motorcycle interview" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 left-4 bg-aussie-red text-white px-3 py-1 text-sm font-bold">FEATURE
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3">Women Who Ride: Breaking Barriers in Australian Motorcycling
+                    </h3>
+                    <p class="text-gray-600 mb-4">Meet the female riders, racers, and industry leaders who are changing
+                        the face of motorcycling in Australia.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">By Sarah Johnson • 4 days ago</span>
+                        <button class="text-aussie-red font-bold flex items-center">
+                            READ MORE <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 文章卡片 3 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                        alt="Motorcycle gear" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 left-4 bg-aussie-red text-white px-3 py-1 text-sm font-bold">GEAR</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3">Summer Riding Gear: Staying Cool in the Australian Heat</h3>
+                    <p class="text-gray-600 mb-4">Our experts test the latest ventilated helmets, mesh jackets and
+                        cooling technologies for riding in extreme temperatures.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">By David Chen • 1 week ago</span>
+                        <button class="text-aussie-red font-bold flex items-center">
+                            READ MORE <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 广告横幅 - 顶部大型广告 -->
+        <div class="my-16 ad-unit h-32 md:h-40 rounded-lg overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                alt="Honda Motorcycles Australia - Official Sponsor" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/10 flex items-center justify-center">
+                <div class="bg-white/80 px-6 py-3 rounded-lg">
+                    <h3 class="text-xl font-bold text-aussie-dark">HONDA MOTORCYCLES AUSTRALIA - OFFICIAL SPONSOR</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- 杂志特色专题 -->
+        <div class="mb-16">
+            <div class="mb-8 flex justify-between items-center">
+                <h2 class="text-3xl font-racing mb-8 flex items-center">
+                    <span class="w-12 h-1 bg-aussie-red mr-4"></span>
+                    THIS MONTH'S SPECIAL
+                </h2>
+                <a href="#" class="text-aussie-red font-bold flex items-center hover:underline">
+                    VIEW ALL <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+
+            <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                        alt="Great Ocean Road" class="w-full h-96 md:h-auto object-cover">
+                    <div class="p-8 md:p-12">
+                        <span
+                            class="bg-aussie-red text-white px-3 py-1 text-sm font-bold uppercase tracking-wider">Cover
+                            Story</span>
+                        <h3 class="text-3xl font-bold mt-4 mb-4">The Great Ocean Road: Australia's Ultimate Motorcycle
+                            Journey</h3>
+                        <p class="text-gray-600 mb-6">Our comprehensive 20-page guide to riding one of the world's most
+                            spectacular coastal routes, including the best stops, hidden gems, and local rider tips.</p>
+                        <p class="text-gray-600 mb-6">From the sweeping curves of Lorne to the majestic Twelve Apostles,
+                            we explore every kilometer of this iconic route and the perfect motorcycles for the journey.
+                        </p>
+                        <p class="text-gray-600 mb-6">Plus: Exclusive pull-out map with accommodation recommendations,
+                            maintenance stops, and photography viewpoints.</p>
+                        <button
+                            class="bg-aussie-red hover:bg-red-700 text-white px-6 py-3 font-bold transition duration-300 self-start flex items-center group">
+                            READ THE FULL STORY
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 最新新闻和侧边栏广告 -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-16">
+            <!-- 主要内容区 - 3列 -->
+            <div class="lg:col-span-3">
+                <div class="mb-8 flex justify-between items-center">
+                    <h2 class="text-3xl font-racing mb-8 flex items-center">
+                        <span class="w-12 h-1 bg-aussie-red mr-4"></span>
+                        LATEST NEWS
+                    </h2>
+                    <a href="#" class="text-aussie-red font-bold flex items-center hover:underline">
+                        VIEW ALL <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- 主要新闻 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                                alt="MotoGP news" class="w-full h-80 object-cover">
+                            <div class="absolute top-4 left-4 bg-aussie-red text-white px-3 py-1 text-sm font-bold">
+                                BREAKING NEWS</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3">BOB WOZGA MY TAKE ON RIDER ATTITUDE</h3>
+                            <p class="text-gray-600 mb-4">We all have an attitude, it varies individually. Our attitude
+                                defines how we work, interact with others and how we carry
+                                ourselves socially and professionally. Our attitude also has a great influence on how we
+                                ride. Being human, our
+                                attitudes to things are not static and can change depending on what is thrown at us at
+                                any given time, and this can have
+                                a profound effect on your riding regardless of whether riding to the shop for bread and
+                                milk or heading out for a
+                                month-long ride. Riding calm as opposed to riding agitated is a completely different
+                                experience.
+                                Attitude is defined in the dictionary as a 'settled mode of thinking'. We all have an
+                                attitude, it varies individually.
+                                Our attitude defines how we work, interact with others and how we carry
+                                Attitude is defined in the dictionary as a 'settled mode of thinking'. We all have an
+                                attitude, it varies individually.
+                                Our attitude defines how we work, interact with others and how we carry</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">By James Wilson • 12 hours ago</span>
+                                <button class="text-aussie-red font-bold flex items-center">
+                                    READ MORE <i class="fas fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 新闻列表 -->
+                    <div class="space-y-6">
+                        <!-- 新闻项 1 -->
+                        <div
+                            class="flex bg-white rounded-lg overflow-hidden shadow-sm card-hover transition duration-300">
+                            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                                alt="New motorcycle" class="w-48 h-48 object-cover">
+                            <div class="p-4 flex-1">
+                                <div class="text-sm text-aussie-red font-bold mb-1">NEW MODELS</div>
+                                <h4 class="font-bold mb-2">Ducati Unveils Limited Edition Panigale V4 Superleggera for
+                                    Australian Market</h4>
+                                <p class="text-gray-600 text-sm mb-2">Only 20 units of the 234hp carbon-fiber superbike
+                                    will be available in Australia.</p>
+                                <span class="text-xs text-gray-500">1 day ago</span>
+                            </div>
+                        </div>
+
+                        <!-- 新闻项 2 -->
+                        <div
+                            class="flex bg-white rounded-lg overflow-hidden shadow-sm card-hover transition duration-300">
+                            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                                alt="Motorcycle helmet" class="w-48 h-48 object-cover">
+                            <div class="p-4 flex-1">
+                                <div class="text-sm text-aussie-red font-bold mb-1">SAFETY</div>
+                                <h4 class="font-bold mb-2">New Australian Standard for Motorcycle Helmets Takes Effect
+                                    Next Month</h4>
+                                <p class="text-gray-600 text-sm mb-2">Updated regulations aim to improve rider safety
+                                    with stricter impact and visibility requirements.</p>
+                                <span class="text-xs text-gray-500">2 days ago</span>
+                            </div>
+                        </div>
+
+                        <!-- 新闻项 3 -->
+                        <div
+                            class="flex bg-white rounded-lg overflow-hidden shadow-sm card-hover transition duration-300">
+                            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                                alt="Electric motorcycle" class="w-48 h-48 object-cover">
+                            <div class="p-4 flex-1">
+                                <div class="text-sm text-aussie-red font-bold mb-1">ELECTRIC</div>
+                                <h4 class="font-bold mb-2">LiveWire Announces Australian Launch with Dealership Network
+                                </h4>
+                                <p class="text-gray-600 text-sm mb-2">Harley-Davidson's electric motorcycle brand will
+                                    open five dedicated showrooms in major cities.</p>
+                                <span class="text-xs text-gray-500">3 days ago</span>
+                            </div>
+                        </div>
+
+                        <!-- 新闻项 4 -->
+                        <div
+                            class="flex bg-white rounded-lg overflow-hidden shadow-sm card-hover transition duration-300">
+                            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                                alt="Motorcycle event" class="w-48 h-48 object-cover">
+                            <div class="p-4 flex-1">
+                                <div class="text-sm text-aussie-red font-bold mb-1">EVENTS</div>
+                                <h4 class="font-bold mb-2">Sydney Motorcycle Show Returns with Record Exhibitor Numbers
+                                </h4>
+                                <p class="text-gray-600 text-sm mb-2">Australia's largest motorcycle exhibition will
+                                    feature over 200 brands and test ride opportunities.</p>
+                                <span class="text-xs text-gray-500">5 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 侧边栏广告 - 1列 -->
+            <div class="lg:col-span-1">
+                <div class="sticky top-32">
+                    <div class="ad-unit h-[600px] rounded-lg mb-8 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                            alt="BMW Motorrad Australia Advertisement" class="w-full h-full object-cover">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 flex items-end justify-center p-6">
+                            <div class="text-center">
+
+                                <h3 class="text-white text-xl font-bold">Advertisement</h3>
+                                <p class="text-white text-sm mt-2">Advertisement Description</p>
+                                <button class="mt-4 bg-white text-black px-4 py-2 rounded-full text-sm font-bold">
+                                    Call to Action Button
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ad-unit h-[250px] rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                            alt="Yamaha Australia Advertisement" class="w-full h-full object-cover">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-transparent to-black/70 flex items-end justify-center p-6">
+                            <div class="text-center">
+                                <h3 class="text-white text-lg font-bold">Advertisement</h3>
+                                <p class="text-white text-sm mt-2">Advertisement Description</p>
+                                <button class="mt-2 bg-white text-black px-3 py-1 rounded-full text-xs font-bold">
+                                    Call to Action Button
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 视频区域 -->
+        <div class="mb-16">
+            <div class="mb-8 flex justify-between items-center">
+                <h2 class="text-3xl font-racing mb-8 flex items-center">
+                    <span class="w-12 h-1 bg-aussie-red mr-4"></span>
+                    FEATURED VIDEOS
+                </h2>
+                <a href="#" class="text-aussie-red font-bold flex items-center hover:underline">
+                    VIEW ALL <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 视频 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                            alt="Motorcycle review video" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-aussie-red rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 right-0 bg-black text-white px-2 py-1 text-xs">14:27</div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">2023 Kawasaki Ninja ZX-10R vs Ducati Panigale V4: Track Showdown</h4>
+                        <p class="text-gray-600 text-sm">We take these superbike rivals to Sydney Motorsport Park to
+                            find the
+                            ultimate track weapon.</p>
+                    </div>
+                </div>
+
+                <!-- 视频 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                            alt="Adventure motorcycle video" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-aussie-red rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 right-0 bg-black text-white px-2 py-1 text-xs">22:15</div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Riding the Simpson Desert: Australia's Ultimate Adventure</h4>
+                        <p class="text-gray-600 text-sm">Join our team as they tackle one of the world's most
+                            challenging desert
+                            crossings on adventure bikes.</p>
+                    </div>
+                </div>
+
+                <!-- 视频 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                            alt="Motorcycle maintenance video" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-aussie-red rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 right-0 bg-black text-white px-2 py-1 text-xs">18:33</div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Essential Maintenance for Riding in Australian Conditions</h4>
+                        <p class="text-gray-600 text-sm">Our workshop experts share tips for keeping your bike running
+                            perfectly
+                            in extreme heat and dust.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 中部广告横幅 -->
+        <div class="mb-16 ad-unit h-32 md:h-40 rounded-lg overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                alt="Pirelli Tyres Australia Advertisement" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex items-center p-8">
+                <div>
+                    <!-- <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/01/Pirelli_logo.svg/1200px-Pirelli_logo.svg.png"
+                        alt="Pirelli Logo" class="h-10 mb-2"> -->
+                    <h3 class="text-white text-2xl font-bold">Advertisement</h3>
+                    <p class="text-white text-sm mt-2">Advertisement Description Adertisement Description</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 热门车型 -->
+        <div class="mb-16">
+            <div class="mb-8 flex justify-between items-center">
+                <h2 class="text-3xl font-racing mb-8 flex items-center">
+                    <span class="w-12 h-1 bg-aussie-red mr-4"></span>
+                    TOP RATED MOTORCYCLES
+                </h2>
+                <a href="#" class="text-aussie-red font-bold flex items-center hover:underline">
+                    VIEW ALL <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 车型 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300 relative">
+                    <div
+                        class="absolute top-4 right-4 bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
+                        9.8</div>
+                    <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                        alt="BMW GS" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg">BMW R 1250 GS Adventure</h4>
+                        <div class="flex items-center mb-2">
+                            <div class="text-yellow-500 flex">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(142 reviews)</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">The ultimate adventure motorcycle for Australia's vast and
+                            varied
+                            terrain.</p>
+                        <div class="flex justify-between text-sm">
+                            <span class="font-bold">CATEGORY: <span class="font-normal">Adventure</span></span>
+                            <span class="font-bold">ENGINE: <span class="font-normal">1254cc</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 车型 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300 relative">
+                    <div
+                        class="absolute top-4 right-4 bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
+                        9.6</div>
+                    <img src="https://images.unsplash.com/photo-1580310614729-ccd69652491d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                        alt="Ducati Panigale" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg">Ducati Panigale V4 S</h4>
+                        <div class="flex items-center mb-2">
+                            <div class="text-yellow-500 flex">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(98 reviews)</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">Italian engineering at its finest - the ultimate track
+                            weapon for
+                            Australian circuits.</p>
+                        <div class="flex justify-between text-sm">
+                            <span class="font-bold">CATEGORY: <span class="font-normal">Sport</span></span>
+                            <span class="font-bold">ENGINE: <span class="font-normal">1103cc</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 车型 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300 relative">
+                    <div
+                        class="absolute top-4 right-4 bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
+                        9.5</div>
+                    <img src="https://images.unsplash.com/photo-1547549082-6bc09f2049ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                        alt="Triumph Tiger" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg">Triumph Tiger 900 Rally Pro</h4>
+                        <div class="flex items-center mb-2">
+                            <div class="text-yellow-500 flex">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(87 reviews)</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">British engineering meets Australian adventure - versatile
+                            and
+                            capable on any terrain.</p>
+                        <div class="flex justify-between text-sm">
+                            <span class="font-bold">CATEGORY: <span class="font-normal">Adventure</span></span>
+                            <span class="font-bold">ENGINE: <span class="font-normal">888cc</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 车型 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300 relative">
+                    <div
+                        class="absolute top-4 right-4 bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
+                        9.4</div>
+                    <img src="https://images.unsplash.com/photo-1622185135505-2d795003994a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                        alt="Zero SR/F" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg">Zero SR/F Premium</h4>
+                        <div class="flex items-center mb-2">
+                            <div class="text-yellow-500 flex">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(64 reviews)</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">The electric revolution arrives in Australia with
+                            impressive range
+                            and performance.</p>
+                        <div class="flex justify-between text-sm">
+                            <span class="font-bold">CATEGORY: <span class="font-normal">Electric</span></span>
+                            <span class="font-bold">RANGE: <span class="font-normal">259km</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 订阅区域 -->
+        <div class="bg-aussie-dark rounded-lg overflow-hidden mb-16">
+            <div class="flex flex-col md:flex-row">
+                <div class="p-8 md:p-12 md:w-1/2">
+                    <h3 class="text-white text-3xl font-racing mb-4">JOIN THE AUSTRALIAN MOTORCYCLIST COMMUNITY</h3>
+                    <p class="text-gray-300 mb-6">Subscribe to our newsletter and get exclusive content, early access to
+                        reviews, and special offers from our partners across Australia.</p>
+                    <div class="flex flex-col sm:flex-row">
+                        <input type="email" placeholder="Your email address"
+                            class="px-4 py-3 rounded-l-lg w-full sm:w-auto mb-2 sm:mb-0">
+                        <button
+                            class="bg-aussie-red hover:bg-red-700 text-white px-6 py-3 font-bold transition duration-300 rounded-r-lg">
+                            SUBSCRIBE
+                        </button>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-4">By subscribing, you agree to our privacy policy and consent to
+                        receive
+                        updates from Australian Motorcyclist.</p>
+                </div>
+                <div class="md:w-1/2 bg-gray-900 flex items-center justify-center p-8">
+                    <div class="text-center">
+                        <div class="text-aussie-red text-5xl mb-4">
+                            <i class="fas fa-motorcycle"></i>
+                        </div>
+                        <h4 class="text-white text-xl font-bold mb-4">FOLLOW US ON SOCIAL MEDIA</h4>
+                        <div class="flex justify-center mt-4 space-x-4">
+                            <a href="#"
+                                class="bg-white hover:bg-aussie-red text-aussie-dark hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#"
+                                class="bg-white hover:bg-aussie-red text-aussie-dark hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#"
+                                class="bg-white hover:bg-aussie-red text-aussie-dark hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#"
+                                class="bg-white hover:bg-aussie-red text-aussie-dark hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 最新装备 -->
+        <div class="mb-16">
+            <div class="mb-8 flex justify-between items-center"></div>
+            <h2 class="text-3xl font-racing mb-8 flex items-center">
+                <span class="w-12 h-1 bg-aussie-red mr-4"></span>
+                GEAR REVIEWS
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 装备 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                            alt="Motorcycle helmet" class="w-full h-48 object-cover">
+                        <div class="absolute top-0 right-0 bg-aussie-red text-white px-2 py-1 text-xs font-bold">
+                            EDITOR'S CHOICE
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Shoei NXR2 Helmet</h4>
+                        <div class="flex items-center mb-2">
+                            <div class="text-yellow-500 flex">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(87 reviews)</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-aussie-red font-bold text-xl"></span>
+                            <button
+                                class="bg-aussie-dark hover:bg-aussie-red text-white px-4 py-2 rounded-full text-sm font-bold transition duration-300">
+                                VIEW DETAILS
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 装备 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                            alt="Motorcycle jacket" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Dainese D-Air Smart Jacket</h4>
+                        <div class="flex items-center mb-2">
+                            <div class="text-yellow-500 flex">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(64 reviews)</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-aussie-red font-bold text-xl"> </span>
+                            <button
+                                class="bg-aussie-dark hover:bg-aussie-red text-white px-4 py-2 rounded-full text-sm font-bold transition duration-300">
+                                VIEW DETAILS
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 装备 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                            alt="Motorcycle boots" class="w-full h-48 object-cover">
+                        <div class="absolute top-0 right-0 bg-green-500 text-white px-2 py-1 text-xs font-bold">NEW
+                            ARRIVAL
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Alpinestars SMX-6 v2 Boots</h4>
+                        <div class="flex items-center mb-2">
+                            <div class="text-yellow-500 flex">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(42 reviews)</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <div class="flex">
+                                <span class="text-aussie-red font-bold text-xl"></span>
+                                <span class="text-gray-500 line-through ml-2"></span>
+                            </div>
+                            <button
+                                class="bg-aussie-dark hover:bg-aussie-red text-white px-4 py-2 rounded-full text-sm font-bold transition duration-300">
+                                VIEW DETAILS
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 装备 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                            alt="Motorcycle gloves" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Held Air n Dry Gore-Tex Gloves</h4>
+                        <div class="flex items-center mb-2">
+                            <div class="text-yellow-500 flex">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(51 reviews)</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-aussie-red font-bold text-xl"></span>
+                            <button
+                                class="bg-aussie-dark hover:bg-aussie-red text-white px-4 py-2 rounded-full text-sm font-bold transition duration-300">
+                                VIEW DETAILS
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部广告横幅 -->
+        <div class="mb-16 ad-unit h-32 md:h-40 rounded-lg overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                alt="Motorcycle Tours Australia Advertisement" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <div class="text-center bg-white/90 px-8 py-4 rounded-lg max-w-2xl">
+                    <h3 class="text-2xl font-bold text-aussie-dark">Advertisement</h3>
+                    <p class="text-gray-700 my-2">
+                    </p>
+                    <button
+                        class="mt-2 bg-aussie-red hover:bg-red-700 text-white px-6 py-2 rounded-full font-bold transition duration-300">
+                        Call to Action Button
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-aussie-dark text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="text-aussie-red text-3xl font-racing mb-4">
+                        Australian Motorcyclist
+                    </div>
+                    <p class="text-gray-300 mb-4">Motorcycle Magazine Motorcycle Magazine Motorcycle Magazine Motorcycle
+                        Magazine
+                        Motorcycle Magazine Motorcycle Magazine Motorcycle Magazine Motorcycle Magazine Motorcycle
+                        Magazine
+                        Motorcycle Magazine Motorcycle Magazine Motorcycle Magazine Motorcycle Magazine Motorcycle
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#"
+                            class="bg-gray-800 hover:bg-aussie-red w-8 h-8 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="bg-gray-800 hover:bg-aussie-red w-8 h-8 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="bg-gray-800 hover:bg-aussie-red w-8 h-8 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#"
+                            class="bg-gray-800 hover:bg-aussie-red w-8 h-8 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-aussie-red transition duration-300">Home</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-aussie-red transition duration-300">Reviews</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-aussie-red transition duration-300">News</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-aussie-red transition duration-300">Features</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-aussie-red transition duration-300">Videos</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-aussie-red transition duration-300">Gear</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-aussie-red transition duration-300">Sport
+                                Bikes</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-aussie-red transition duration-300">Adventure</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-aussie-red transition duration-300">Cruisers</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-aussie-red transition duration-300">Naked
+                                Bikes</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-aussie-red transition duration-300">Electric</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-aussie-red transition duration-300">Classics</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-aussie-red mt-1 mr-3"></i>
+                            <span class="text-gray-400">123 123 123 Road<br>Melbourne, VIC 3000</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-aussie-red mr-3"></i>
+                            <span class="text-gray-400">(01) 2345678</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-aussie-red mr-3"></i>
+                            <span class="text-gray-400">email@australianmotorcyclist.com.au</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 Australian Motorcyclist Magazine. All rights
+                    reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-aussie-red text-sm transition duration-300">Privacy
+                        Policy</a>
+                    <a href="#" class="text-gray-500 hover:text-aussie-red text-sm transition duration-300">Terms of
+                        Service</a>
+                    <a href="#" class="text-gray-500 hover:text-aussie-red text-sm transition duration-300">Cookie
+                        Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 浮动广告 -->
+    <div class="fixed bottom-0 right-0 z-50 p-4">
+        <div class="ad-unit w-[300px] h-[250px] rounded-lg overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                alt="Alpinestars Advertisement" class="w-full h-full object-cover">
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center p-4">
+                <div class="text-center">
+
+                    <h3 class="text-white text-sm font-bold">Advertisement</h3>
+                    <button class="mt-2 bg-white text-black px-3 py-1 rounded-full text-xs font-bold">
+                        Call to Action Button
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-800 text-white text-xs text-center py-1 rounded-b-lg cursor-pointer">
+            CLOSE [X]
+        </div>
+    </div>
+
+    <!-- 弹出式广告 - 初始隐藏 -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden" id="popup-ad">
+        <div class="bg-white rounded-lg p-4 max-w-md w-full">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold">Subscribe</h3>
+                <button class="text-gray-500 hover:text-gray-700"
+                    onclick="document.getElementById('popup-ad').classList.add('hidden')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="ad-unit w-full h-[250px] rounded-lg mb-4 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                    alt="Magazine subscription" class="w-full h-full object-cover">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 flex items-end justify-center p-4">
+
+                </div>
+            </div>
+            <p class="text-gray-600 mb-4">Join thousands of Australian riders who trust Australian Motorcyclist for the
+                best
+                reviews, news, and features.</p>
+            <div class="flex justify-between">
+                <button
+                    class="bg-aussie-red hover:bg-red-700 text-white px-6 py-2 rounded-lg font-bold transition duration-300">
+                    SUBSCRIBE NOW
+                </button>
+                <button class="text-gray-500 hover:text-aussie-red transition duration-300"
+                    onclick="document.getElementById('popup-ad').classList.add('hidden')">
+                    No, thanks
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 修改轮播功能
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.absolute.bottom-4.right-4 div');
+            let currentSlide = 0;
+            let slideInterval;
+
+            function showSlide(index) {
+                // 隐藏所有幻灯片
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+
+                // 更新所有指示点
+                dots.forEach(dot => {
+                    dot.classList.remove('opacity-100');
+                    dot.classList.add('opacity-50');
+                });
+
+                // 显示当前幻灯片和指示点
+                slides[index].classList.add('active');
+                dots[index].classList.remove('opacity-50');
+                dots[index].classList.add('opacity-100');
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            // 为指示点添加点击事件
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    showSlide(currentSlide);
+
+                    // 重置自动轮播计时器
+                    clearInterval(slideInterval);
+                    slideInterval = setInterval(nextSlide, 5000);
+                });
+            });
+
+            // 初始显示第一张幻灯片
+            showSlide(0);
+
+            // 每5秒切换一次幻灯片
+            slideInterval = setInterval(nextSlide, 5000);
+
+            // 点击分类标签切换
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    categoryTabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.classList.add('text-gray-500');
+                    });
+                    this.classList.add('active');
+                    this.classList.remove('text-gray-500');
+                });
+            });
+
+            // 显示弹出广告 - 5秒后显示
+            setTimeout(function () {
+                document.getElementById('popup-ad').classList.remove('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+
+</html>
